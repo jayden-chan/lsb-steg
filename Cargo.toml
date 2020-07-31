@@ -1,5 +1,5 @@
 [package]
-name = "lsb-steno"
+name = "lsb-steg"
 version = "0.1.0"
 authors = ["Jayden Chan <jaydencn7@gmail.com>"]
 edition = "2018"
