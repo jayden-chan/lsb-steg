@@ -87,10 +87,10 @@ fn encode(file: &str, image: &str) -> Result<(), Box<dyn Error>> {
     let x = contents.len() as u32 % dim_x;
     let y = contents.len() as u32 / dim_y;
     let pixel = img.get_pixel_mut(x, y);
-    let r = pixel[0] & 0b1111_1100;
-    let g = pixel[1] & 0b1111_1100;
-    let b = pixel[2] & 0b1111_1100;
-    let a = pixel[3] & 0b1111_1100;
+    let r = pixel[0] & REJECT_LEAST;
+    let g = pixel[1] & REJECT_LEAST;
+    let b = pixel[2] & REJECT_LEAST;
+    let a = pixel[3] & REJECT_LEAST;
     img.put_pixel(x, y, Pixel::from_channels(r, g, b, a));
 
     eprintln!("Saving...");
